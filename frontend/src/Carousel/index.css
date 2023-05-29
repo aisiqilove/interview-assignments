@@ -1,0 +1,92 @@
+
+:root {
+  --duration: 1s
+}
+.swiper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.swiper__content {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+}
+.swiper--vertical {
+  flex-direction: column;
+}
+.swiper--horizontal {
+  flex-direction: row;
+}
+.swiper__content__item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper__content__item--title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.swiper__bars {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.swiper__bars__item {
+  width: 32px;
+  height: 3px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #9E9E9E;
+  position: relative;
+  cursor: pointer;
+}
+.swiper__bars__item::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+}
+.swiper__bars__item--active {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper__bars__item--active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  animation: active var(--duration) linear 0s 1 alternate forwards;
+}
+@keyframes active {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
